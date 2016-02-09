@@ -1,0 +1,22 @@
+<div class="row" ng-controller="Users">
+    <div class="col-md-4 col-lg-4"></div>
+    <div class="col-md-4 col-lg-4">
+        <div class="thumbnail">
+            <img src="{{users.url}}" alt="{{users.name}}">
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-4"></div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-xs-12">
+            <ul class="list-group">
+                <li  class="list-group-item">Nome: {{users.name}} {{ users.sobrenome }}</li>
+                <li  class="list-group-item">Telefone: {{users.phone}}</li>
+                <li  class="list-group-item">Data de nascimento: {{users.data_nascimento}}</li>
+                <li  class="list-group-item">CPF: {{users.cpf}}</li>
+                <li  class="list-group-item">RG: {{users.rg}}</li>
+                <li  class="list-group-item">Endereço: {{users.endereco}}</li>
+                <li  class="list-group-item">CEP: {{users.cep}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
