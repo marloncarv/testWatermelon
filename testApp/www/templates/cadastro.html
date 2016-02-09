@@ -46,11 +46,11 @@
                 <div class="row"></div>
                 <div class="input-group">
                     <span class="input-group-addon" id="sizing-addon1">Foto:</span>
-                  <input type="text" class="form-control" name="url" ng-model="user.url" aria-describedby="basic-addon3">
+                  <input type="file" class="form-control" name="url" ng-model="user.url" maxsize="1024" accept="image/*" aria-describedby="basic-addon3" base-sixty-four-input>
                 </div>
                 <div class="row"></div>
                 <button class="btn btn-success" type="submit" ng-disabled="cadastro.$invalid">Cadastrar</button>
-                <a href="/#/app/main" class="btn btn-primary">Voltar</a>
+                <div class="btn btn-primary" ng-click="voltar()">Voltar</div>
             </form>
         </div>
     </ion-content>

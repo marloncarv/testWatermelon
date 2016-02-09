@@ -41,9 +41,11 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('Users', function($scope, $http, $stateParams) {
+.controller('Users', function($scope, $http, $stateParams, $state) {
 
     $scope.users = {};
+
+    $state.go($state.current, {}, {reload: true});
 
     if ($stateParams.userId){
         $http.get('http://localhost:3000/users/'+$stateParams.userId)
@@ -70,24 +72,32 @@ angular.module('starter.controllers', [])
 })
 
 .controller('CadastroCtrl', function($scope, $http) {
-      $scope.user = {};
+        $scope.user = {};
 
-      $scope.mensagem = '';
+        $scope.mensagem = '';
 
-      $scope.$watch('cadastro.$valid', function(valid){
+        $scope.$watch('cadastro.$valid', function(valid){
           $scope.formValid = valid
-      })
+        });
 
-      $scope.submeter = function(){       
+        $scope.submeter = function(){
+        var urlFoto = $scope.user.url.base64;
+        $scope.user.url = urlFoto;
+        console.log($scope.user.url);
         $http.post('/users', $scope.user)
         .success(function(){
           $scope.mensagem = 'UsuÃ¡rio cadastrado com sucesso!';
           $scope.user = {};
         })
         .error(function(erro){
-          $scope.mensagem = erro
+            $scope.mensagem = 'Não foi possível cadastrar';
+            console.log(erro);
         })
 
-        
-      }
+
+        };
+
+        $scope.voltar = function(){
+            window.location.href = '/#/app/cadastro.html';
+        }
 });
