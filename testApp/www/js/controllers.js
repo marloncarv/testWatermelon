@@ -82,8 +82,7 @@ angular.module('starter.controllers', [])
 
         $scope.submeter = function(){
         var urlFoto = $scope.user.url.base64;
-        $scope.user.url = urlFoto;
-        console.log($scope.user.url);
+        $scope.user.url = 'data:image/jpg;base64,'+urlFoto;
         $http.post('/users', $scope.user)
         .success(function(){
           $scope.mensagem = 'Usuário cadastrado com sucesso!';
